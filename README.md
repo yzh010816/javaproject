@@ -2,6 +2,9 @@
 
 ## 正在开发中。。。
 
+## 技术栈
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0330/204326_d5e2a8d0_8169242.png "屏幕截图.png")
+
 ### 介绍
 基于SSM+Layui的图书管理系统
 
