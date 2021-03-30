@@ -24,14 +24,8 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--注入连接池-->
         <property name="dataSource" ref="dataSource"/>
-        <!--&lt;!&ndash;注入dao-mapoper文件信息&ndash;&gt;
-        <property name="mapperLocations">
-            <list>
-                <value>classpath:com/yx/dao/*.xml</value>
-            </list>
-        </property>-->
         <!--使得实体类中用类名作为别名-->
-        <property name="typeAliasesPackage" value="com.yx.entity"></property>
+        <property name="typeAliasesPackage" value="com.yx.po"></property>
 
         <!--分页-->
         <property name="plugins">

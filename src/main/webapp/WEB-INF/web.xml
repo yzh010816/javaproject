@@ -21,7 +21,6 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-
   <!--防乱码-->
   <filter>
     <filter-name>encoding</filter-name>
@@ -53,6 +52,7 @@
     <url-pattern>/images/**</url-pattern>
     <url-pattern>/js/*</url-pattern>
     <url-pattern>/lib/*</url-pattern>
+    <url-pattern>/page/*</url-pattern>
   </servlet-mapping>
 
   <!--配置spring文件路径-->
