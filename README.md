@@ -19,7 +19,10 @@
 ![首页](https://images.gitee.com/uploads/images/2021/0330/193616_c3bba7be_8169242.png "屏幕截图.png")
 
 ### 2、类型管理 （开发完毕）
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0330/200057_8f13c065_8169242.png "屏幕截图.png")
+![类型管理](https://images.gitee.com/uploads/images/2021/0330/200057_8f13c065_8169242.png "屏幕截图.png")
+
+### 3、图书信息管理 （开发完毕）
+![图书信息管理](https://images.gitee.com/uploads/images/2021/0331/222943_f5a0a074_8169242.png "屏幕截图.png")
 
 
 
