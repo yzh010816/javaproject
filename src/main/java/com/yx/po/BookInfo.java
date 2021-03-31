@@ -98,6 +98,16 @@ public class BookInfo implements Serializable {
      *
      * @mbggenerated Tue Mar 30 16:30:04 CST 2021
      */
+    private TypeInfo typeInfo;//图书类型，在图书馆里中显示什么类型的书
+
+    public TypeInfo getTypeInfo() {
+        return typeInfo;
+    }
+
+    public void setTypeInfo(TypeInfo typeInfo) {
+        this.typeInfo = typeInfo;
+    }
+
     private static final long serialVersionUID = 1L;
 
     /**

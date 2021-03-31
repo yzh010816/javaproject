@@ -2,10 +2,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<%
+<%--<%
     String path=request.getContextPath();
     String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+%>--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +14,9 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="<%=basePath%>lib/layui-v2.5.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="<%=basePath%>lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
-    <link rel="stylesheet" href="<%=basePath%>css/public.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/public.css" media="all">
     <style>
         .layui-card {border:1px solid #f2f2f2;border-radius:5px;}
         .icon {margin-right:10px;color:#1aa094;}
@@ -138,8 +138,8 @@
                     </div>
             </div>
 </div>
-<script src="<%=basePath%>lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
-<script src="<%=basePath%>js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
     layui.use(['layer', 'miniTab','echarts'], function () {
         var $ = layui.jquery,

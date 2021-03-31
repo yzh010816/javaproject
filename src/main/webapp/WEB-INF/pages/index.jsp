@@ -1,18 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2021-3-22 0022
-  Time: 20:36
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
+<%--<%
     String path=request.getContextPath();
     String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+%>--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +18,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="icon" href="<%=basePath%>images/favicon.ico">
-    <link rel="stylesheet" href="<%=basePath%>lib/layui-v2.5.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="<%=basePath%>css/layuimini.css?v=2.0.4" media="all">
-    <link rel="stylesheet" href="<%=basePath%>css/themes/default.css" media="all">
-    <link rel="stylesheet" href="<%=basePath%>lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layuimini.css?v=2.0.4" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/themes/default.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
     <!--[if lt IE 9]>
     <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
@@ -138,8 +131,8 @@
 
     </div>
 </div>
-<script src="<%=basePath%>lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
-<script src="<%=basePath%>js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/lay-config.js?v=2.0.0" charset="utf-8"></script>
 <script>
     layui.use(['jquery', 'layer', 'miniAdmin','miniTongji'], function () {
         var $ = layui.jquery,
@@ -148,8 +141,8 @@
             miniTongji = layui.miniTongji;
 
         var options = {
-            iniUrl: "<%=basePath%>api/init.json",    // 初始化接口
-            clearUrl: "<%=basePath%>api/clear.json", // 缓存清理接口
+            iniUrl: "${pageContext.request.contextPath}/api/init.json",    // 初始化接口
+            clearUrl: "${pageContext.request.contextPath}/api/clear.json", // 缓存清理接口
             urlHashLocation: true,      // 是否打开hash定位
             bgColorDefault: false,      // 主题默认配置
             menuChildOpen: true,       // 是否默认展开菜单
@@ -161,7 +154,7 @@
 
         $('.login-out').on("click", function () {
             layer.msg('退出登录成功', function () {
-                window.location = '<%=basePath%>page/login-1.html';
+                window.location = '${pageContext.request.contextPath}/page/login-1.html';
             });
         });
     });
