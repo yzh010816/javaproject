@@ -23,68 +23,58 @@
 <div class="layui-form layuimini-form">
     <input type="hidden" name="id"   value="${info.id}">
     <div class="layui-form-item">
-        <label class="layui-form-label required">图书名称</label>
+        <label class="layui-form-label required">读者卡号</label>
         <div class="layui-input-block">
-            <input type="text" name="name" lay-verify="required"  value="${info.name}" class="layui-input">
+            <input type="text" name="readerNumber" lay-reqtext="读者卡号不能为空" value="${info.readerNumber}" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">图书编号</label>
+        <label class="layui-form-label required">用户名</label>
         <div class="layui-input-block">
-            <input type="text" name="isbn" lay-verify="required"value="${info.isbn}"  class="layui-input">
+            <input type="text" name="username" lay-reqtext="用户名不能为空" value="${info.username}" autocomplete="off" class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label required">图书类别</label>
+        <label class="layui-form-label required">真实姓名</label>
         <div class="layui-input-block">
-            <select name="typeId" id="typeId" lay-verify="required">
-                <option value="${info.typeId}">请选择</option>
-            </select>
+            <input type="text" name="realName" lay-reqtext="真实姓名不能为空"  value="${info.realName}" autocomplete="off" class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label required">图书作者</label>
+        <label class="layui-form-label required">性别</label>
         <div class="layui-input-block">
-            <input type="text" name="author" lay-verify="required" value="${info.author}"   class="layui-input">
+            <input type="radio" name="sex"  value="男" title="男"  ${"男" eq info.sex ?"checked='checked'":''} />
+            <input type="radio" name="sex"  value="女" title="女"  ${"女" eq info.sex ?"checked='checked'":''} />
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label required">图书出版社</label>
+        <label class="layui-form-label required">出生日期</label>
         <div class="layui-input-block">
-            <input type="text" name="publish" lay-verify="required" value="${info.publish}"   class="layui-input">
+            <input type="text" name="birthday" id="date" lay-verify="required"  value="<fmt:formatDate value='${info.birthday}' pattern='yyyy-MM-dd'/>" class="layui-input" autocomplete="off">
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label required">图书语言</label>
+        <label class="layui-form-label required">联系方式</label>
         <div class="layui-input-block">
-            <input type="text" name="language"  value="${info.language}"   class="layui-input">
+            <input type="text" name="tel" lay-verify="required"  class="layui-input" value="${info.tel}" autocomplete="off">
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label required">图书价格</label>
+        <label class="layui-form-label required">邮箱地址</label>
         <div class="layui-input-block">
-            <input type="number" name="price"  value="${info.price}"   class="layui-input">
+            <input type="text" name="email" autocomplete="off" value="${info.email}"  class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label">出版日期</label>
+        <label class="layui-form-label required">借书数量</label>
         <div class="layui-input-block">
-            <input type="text" name="publishDate" id="date"
-                   value="<fmt:formatDate value="${info.publishDate}" pattern="yyyy-MM-dd"/>"
-                   lay-verify="date" autocomplete="off" class="layui-input"/>
-        </div>
-    </div>
-
-    <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">图书介绍</label>
-        <div class="layui-input-block">
-            <textarea name="introduction" class="layui-textarea" placeholder="请输入介绍信息">${info.introduction}</textarea>
+            <input type="text" name="number" autocomplete="off" value="${info.number}" class="layui-input">
         </div>
     </div>
 
@@ -108,36 +98,14 @@
             trigger:'click'
         });
 
-        //动态获取图书类型的数据
-        $.get("findAllList",{},function (data) {
-            //获取图书类型的值
-            var typeId=$('#typeId')[0].value;
-            var list=data;
-            var select=document.getElementById("typeId");
-            if(list!=null|| list.size()>0){
-                for(var c in list){
-                    var option=document.createElement("option");
-                    option.setAttribute("value",list[c].id);
-                    option.innerText=list[c].name;
-                    select.appendChild(option);
-                    //如果类型和循环到的类型iD一致，选中
-                    if (list[c].id==typeId){
-                        option.setAttribute("selected","selected");
-                        layui.form.render('select');
-                    }
-                }
-            }
-            form.render('select');
-        },"json")
-
         //监听提交
         form.on('submit(saveBtn)', function (data) {
             var datas=data.field;//form单中的数据信息
             //向后台发送数据提交添加
             $.ajax({
-                url:"updateBookSubmit",
+                url:"updateReaderSubmit",
                 type:"POST",
-                // data:datas,
+                //data:datas,
                 contentType:'application/json',
                 data:JSON.stringify(datas),
                 success:function(result){
