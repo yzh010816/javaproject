@@ -49,7 +49,7 @@ public class BookInfoController {
     /**
      * 添加页面的跳转
      */
-    @RequestMapping("/bookAdd")
+    @GetMapping("/bookAdd")
     public String bookAdd(){
         return "book/bookAdd";
     }

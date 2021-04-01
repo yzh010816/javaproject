@@ -1,6 +1,9 @@
 package com.yx.dao;
 
 import com.yx.po.Notice;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface NoticeMapper {
     /**
@@ -50,4 +53,10 @@ public interface NoticeMapper {
      * @mbggenerated Tue Mar 30 16:30:04 CST 2021
      */
     int updateByPrimaryKey(Notice record);
+
+    /**
+     * 查询所有公告信息
+     */
+    List<Notice> queryNoticeAll(Notice notice);
+
 }

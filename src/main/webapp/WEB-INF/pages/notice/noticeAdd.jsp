@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>类型添加</title>
+    <title>发布公告</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,16 +23,15 @@
 <body>
 <div class="layui-form layuimini-form">
     <div class="layui-form-item">
-        <label class="layui-form-label required">类型名称</label>
+        <label class="layui-form-label required">公告主题</label>
         <div class="layui-input-block">
-            <input type="text" name="name" lay-verify="required" lay-reqtext="类型名称不能为空" placeholder="请输入类型名称" value="" class="layui-input">
-            <tip>填写自己类型名称</tip>
+            <input type="text" name="topic" lay-verify="required" lay-reqtext="公告主题不能为空" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">备注信息</label>
+        <label class="layui-form-label required">公告内容</label>
         <div class="layui-input-block">
-            <textarea name="remarks" class="layui-textarea" placeholder="请输入备注信息"></textarea>
+            <textarea name="content" lay-verify="required" lay-reqtext="公告内容不能为空" autocomplete="off" class="layui-textarea"></textarea>
         </div>
     </div>
 
@@ -54,7 +53,7 @@
             var datas=data.field;//form单中的数据信息
             //向后台发送数据提交添加
             $.ajax({
-                url:"addTypeSubmit",
+                url:"addNoticeSubmit",
                 type:"POST",
                 data:datas,
                 success:function(result){
@@ -68,7 +67,7 @@
                             parent.layer.close(iframeIndex);
                         })
                     }else{
-                         layer.msg("类型添加失败");
+                         layer.msg("添加失败");
                     }
                 }
             })
