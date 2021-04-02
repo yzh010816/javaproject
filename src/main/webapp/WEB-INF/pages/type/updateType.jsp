@@ -3,11 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored="false" %>
 
-<%--<%
-    String path=request.getContextPath();
-    String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>--%>
-
 <html>
 <head>
     <meta charset="utf-8">

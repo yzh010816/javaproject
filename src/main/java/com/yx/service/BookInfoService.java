@@ -29,5 +29,5 @@ public interface BookInfoService {
     /**
      * 根据ids删除记录信息
      */
-    void deleteBookByIds(List<String> id);
+    void deleteBookByIds(List<String> ids);
 }

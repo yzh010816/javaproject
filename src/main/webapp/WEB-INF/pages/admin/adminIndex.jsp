@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>类型管理</title>
+    <title>管理员管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,11 +19,21 @@
     <div class="layuimini-main">
 
         <div class="demoTable">
-            类型名称：
-            <div class="layui-inline">
-                <input class="layui-input" name="name" id="name" autocomplete="off">
+            <div class="layui-form-item layui-form">
+                用户名：
+                <div class="layui-inline">
+                    <input class="layui-input" name="username" id="username" autocomplete="off">
+                </div>
+                管理员类型：
+                <div class="layui-inline">
+                    <select id="adminType" name="adminType" class="layui-input">
+                        <option value="">请选择</option>
+                        <option value="0">普通管理员</option>
+                        <option value="1">高级管理员</option>
+                    </select>
+                </div>
+                <button class="layui-btn" data-type="reload">搜索</button>
             </div>
-            <button class="layui-btn" data-type="reload">搜索</button>
         </div>
 
         <script type="text/html" id="toolbarDemo">
@@ -37,7 +47,7 @@
         <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
 
         <script type="text/html" id="currentTableBar">
-            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">修改密码</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
         </script>
 
@@ -52,7 +62,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '${pageContext.request.contextPath}/typeAll',//查询类型数据
+            url: '${pageContext.request.contextPath}/adminAll',//查询全部数据
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -62,8 +72,14 @@
             cols: [[
                 {type: "checkbox", width: 50},
                 //{field: 'id', width: 100, title: 'ID', sort: true},
-                {field: 'name', width: 180, title: '类型名称'},
-                {field: 'remarks', width: 280, title: '备注'},
+                {field: 'username', width: 150, title: '用户名'},
+                {field: 'adminType', width: 200, title: '管理员类型',templet:function (res) {
+                        if (res.adminType == '0'){
+                            return '<span class="layui-btn layui-btn-normal layui-btn-xs">普通管理员</span>';
+                        }else{
+                            return '<span class="layui-btn layui-btn-normal layui-btn-xs" style="background-color: orangered;">高级管理员</span>';
+                        }
+                    }},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
@@ -75,7 +91,8 @@
 
         var $ = layui.$, active = {
             reload: function(){
-                var name = $('#name').val();
+                var username = $('#username').val();
+                var adminType = $('#adminType').val();
                 console.log(name)
                 //执行重载
                 table.reload('testReload', {
@@ -83,7 +100,8 @@
                         curr: 1 //重新从第 1 页开始
                     }
                     ,where: {
-                        name: name
+                        username: username,
+                        adminType:adminType
                     }
                 }, 'data');
             }
@@ -101,13 +119,13 @@
             var data=obj.data;
             if (obj.event === 'edit') {  // 监听修改操作
                 var index = layer.open({
-                    title: '修改图书类型',
+                    title: '修改管理员信息',
                     type: 2,
                     shade: 0.2,
                     maxmin:true,
                     shadeClose: true,
                     area: ['60%', '60%'],
-                    content: '${pageContext.request.contextPath}/queryTypeInfoById?id='+data.id,
+                    content: '${pageContext.request.contextPath}/queryAdminById?id='+data.id,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -145,7 +163,7 @@
         function deleteInfoByIds(ids ,index){
             //向后台发送请求
             $.ajax({
-                url: "deleteType",
+                url: "deleteAdminByIds",
                 type: "POST",
                 data: {ids: ids},
                 success: function (result) {
@@ -171,13 +189,13 @@
         table.on('toolbar(currentTableFilter)', function (obj) {
             if (obj.event === 'add') {  // 监听添加操作
                 var index = layer.open({
-                    title: '添加类型',
+                    title: '添加管理员',
                     type: 2,
                     shade: 0.2,
                     maxmin:true,
                     shadeClose: true,
                     area: ['60%', '60%'],
-                    content: '${pageContext.request.contextPath}/typeAdd',
+                    content: '${pageContext.request.contextPath}/adminAdd',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
