@@ -30,5 +30,8 @@
 ### 5、公告管理（开发完毕）
 ![公告管理](https://images.gitee.com/uploads/images/2021/0401/225400_7d994428_8169242.png "屏幕截图.png")
 
+### 6、管理员管理（开发完毕）
+![管理员管理](https://images.gitee.com/uploads/images/2021/0402/120518_7bd5a495_8169242.png "屏幕截图.png")
+
 
 
