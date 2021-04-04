@@ -33,7 +33,7 @@
 ### 6、管理员管理（开发完毕）
 ![管理员管理](https://images.gitee.com/uploads/images/2021/0402/120518_7bd5a495_8169242.png "屏幕截图.png")
 
-### 7、借阅管理（待完善）
+### 7、借阅管理（开发完毕）
 ![借阅管理](https://images.gitee.com/uploads/images/2021/0403/222828_78f16633_8169242.png "屏幕截图.png")
 
 
