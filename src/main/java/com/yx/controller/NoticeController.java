@@ -27,6 +27,13 @@ public class NoticeController {
     public String noticeIndexOfBack(){
         return "notice/noticeIndexOfBack";
     }
+    /**
+     *  后台公告
+     */
+    @GetMapping("/noticeIndexOfReader")
+    public String noticeIndexOfReader(){
+        return "notice/noticeIndexOfReader";
+    }
 
     /**
      * 查询所有公告信息

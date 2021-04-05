@@ -40,5 +40,8 @@ public class BaseController {
         return "welcome";
     }
 
-
+    @GetMapping("/updatePassword")
+    public String updatePwd(){
+        return "others/updatePwd";
+    }
 }

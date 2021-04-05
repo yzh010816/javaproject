@@ -72,13 +72,6 @@
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label required">借书数量</label>
-        <div class="layui-input-block">
-            <input type="text" name="number" autocomplete="off" value="${info.number}" class="layui-input">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认修改</button>
         </div>

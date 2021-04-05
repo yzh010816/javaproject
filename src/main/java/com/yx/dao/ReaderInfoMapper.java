@@ -1,6 +1,7 @@
 package com.yx.dao;
 
 import com.yx.po.ReaderInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -57,4 +58,9 @@ public interface ReaderInfoMapper {
      * 查询所有记录信息
      */
     List<ReaderInfo> queryAllReaderInfo(ReaderInfo readerInfo);
+
+    /**
+     * 根据用户名和密码查询用户信息
+     */
+    ReaderInfo queryUserInfoByNameAndPassword(@Param("username") String username, @Param("password") String password);
 }

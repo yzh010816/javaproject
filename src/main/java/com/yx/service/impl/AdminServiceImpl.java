@@ -44,4 +44,9 @@ public class AdminServiceImpl implements AdminService {
             adminMapper.deleteByPrimaryKey(Integer.parseInt(id));
         }
     }
+
+    @Override
+    public Admin queryUserByNameAndPassword(String username, String password) {
+        return adminMapper.queryUserByNameAndPassword(username,password);
+    }
 }

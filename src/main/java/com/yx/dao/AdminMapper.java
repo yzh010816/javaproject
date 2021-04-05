@@ -1,6 +1,7 @@
 package com.yx.dao;
 
 import com.yx.po.Admin;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -57,4 +58,9 @@ public interface AdminMapper {
      * 管理员查询
      */
     List<Admin> queryAdminInfoAll(Admin admin);
+
+    /**
+     * 根据用户名和密码查询用户信息
+     */
+    Admin queryUserByNameAndPassword(@Param("username") String username,@Param("password") String password);
 }

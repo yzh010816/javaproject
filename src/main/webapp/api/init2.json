@@ -17,16 +17,16 @@
       "child": [
           {
               "title": "公告管理",
-              "href": "noticeIndex2",
+              "href": "noticeIndexOfReader",
               "icon": "fa fa-window-maximize",
               "target": "_self"
-            },
-        {
-          "title": "借阅记录",
-          "href": "queryLookBookList2",
-          "icon": "fa fa-gears",
-          "target": "_self"
-        }
+          },
+          {
+            "title": "借阅管理",
+            "href": "queryLookBookList2",
+            "icon": "fa fa-gears",
+            "target": "_self"
+          }
       ]
     }
 

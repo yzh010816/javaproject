@@ -66,19 +66,19 @@
                     <a href="javascript:;" data-check-screen="full"><i class="fa fa-arrows-alt"></i></a>
                 </li>
                 <li class="layui-nav-item layuimini-setting">
-                    <a href="javascript:;">admin</a>
+                    <a href="javascript:;"><span style="color: #BBBBBB">${sessionScope.user.username}</span></a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="javascript:;" layuimini-content-href="page/user-setting.html" data-title="基本资料" data-icon="fa fa-gears">基本资料<span class="layui-badge-dot"></span></a>
+                            <a href="javascript:;" layuimini-content-href="" data-title="基本资料" data-icon="fa fa-gears">基本资料<span class="layui-badge-dot"></span></a>
                         </dd>
                         <dd>
-                            <a href="javascript:;" layuimini-content-href="page/user-password.html" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
+                            <a href="javascript:;" layuimini-content-href="${pageContext.request.contextPath}/updatePassword" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
                         </dd>
                         <dd>
                             <hr>
                         </dd>
                         <dd>
-                            <a href="javascript:;" class="login-out">退出登录</a>
+                            <a href="#" class="loginOut">退出登录</a>
                         </dd>
                     </dl>
                 </li>
@@ -141,7 +141,15 @@
             miniTongji = layui.miniTongji;
 
         var options = {
-            iniUrl: "${pageContext.request.contextPath}/api/init.json",    // 初始化接口
+            <c:choose>
+                <c:when test="${sessionScope.type.equals('reader')}">
+                    iniUrl: "${pageContext.request.contextPath}/api/init2.json",    // 初始化接口，读者
+                </c:when>
+                <c:otherwise>
+                    iniUrl: "${pageContext.request.contextPath}/api/init.json",    // 初始化接口，管理
+                </c:otherwise>
+            </c:choose>
+
             clearUrl: "${pageContext.request.contextPath}/api/clear.json", // 缓存清理接口
             urlHashLocation: true,      // 是否打开hash定位
             bgColorDefault: false,      // 主题默认配置
@@ -152,9 +160,13 @@
         };
         miniAdmin.render(options);
 
-        $('.login-out').on("click", function () {
-            layer.msg('退出登录成功', function () {
-                window.location = '${pageContext.request.contextPath}/page/login-1.html';
+        $('.loginOut').on("click", function () {
+            layer.msg('退出登录成功',  {
+                icon: 6,
+                time: 500
+            },function () {
+                sessionStorage.clear();
+                window.location = '${pageContext.request.contextPath}/loginOut';
             });
         });
     });

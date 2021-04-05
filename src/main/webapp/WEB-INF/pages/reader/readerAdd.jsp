@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
@@ -65,13 +65,6 @@
         <label class="layui-form-label required">邮箱地址</label>
         <div class="layui-input-block">
             <input type="text" name="email" autocomplete="off"  class="layui-input">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label required">借书数量</label>
-        <div class="layui-input-block">
-            <input type="text" name="number" autocomplete="off"  class="layui-input">
         </div>
     </div>
 

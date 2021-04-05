@@ -130,4 +130,8 @@
       </if>
     </where>
   </select>
+
+  <select id="queryUserByNameAndPassword" resultType="com.yx.po.Admin">
+    select * from admin where username=#{username} and password=#{password}
+  </select>
 </mapper>

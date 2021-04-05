@@ -31,4 +31,9 @@ public interface AdminService {
      * 删除
      */
     void deleteAdminByIds(List<String> ids);
+
+    /**
+     * 根据用户名和密码查询用户信息
+     */
+    Admin queryUserByNameAndPassword(String username,String password);
 }

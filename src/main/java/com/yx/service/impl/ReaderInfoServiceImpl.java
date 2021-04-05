@@ -44,4 +44,9 @@ public class ReaderInfoServiceImpl implements ReaderInfoService {
             readerInfoMapper.deleteByPrimaryKey(Integer.parseInt(id));
         }
     }
+
+    @Override
+    public ReaderInfo queryUserInfoByNameAndPassword(String username, String password) {
+        return readerInfoMapper.queryUserInfoByNameAndPassword(username, password);
+    }
 }

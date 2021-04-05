@@ -77,7 +77,7 @@ public class AdminController {
             adminService.updateAdminSubmit(admin);//数据库修改
             return DataInfo.ok();
         }
-}
+    }
 
     /**
      * 删除

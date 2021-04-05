@@ -31,4 +31,9 @@ public interface ReaderInfoService {
      * 删除
      */
     void deleteReaderInfoByIds(List<String> ids);
+
+    /**
+     * 根据用户名和密码查询用户信息
+     */
+    ReaderInfo queryUserInfoByNameAndPassword(String username,String password);
 }

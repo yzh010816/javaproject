@@ -226,13 +226,10 @@
   </update>
 
   <!--查询时间线-->
-
-
-
   <select id="queryLookBookList" resultMap="queryLendListAllMap">
     SELECT
     lend.*,
-    reader.number,
+    reader.readerNumber,
     bookInfo.name  AS  bookName,
     reader.realName AS realName
     FROM
