@@ -44,7 +44,7 @@ public class LendListController {
      */
     @ResponseBody
     @RequestMapping("/lendListAll")
-    public DataInfo lendListAll(Integer type, String cardnumber, String name, Integer status,
+    public DataInfo lendListAll(Integer type, String readerNumber, String name, Integer status,
                          @RequestParam(defaultValue = "1")Integer page,@RequestParam(defaultValue = "15")Integer limit){
 
         LendList info=new LendList();
@@ -52,7 +52,7 @@ public class LendListController {
 
         //创建读者对象
         ReaderInfo reader=new ReaderInfo();
-        reader.setReaderNumber(cardnumber);
+        reader.setReaderNumber(readerNumber);
         //把以上对象交给info
         info.setReaderInfo(reader);
 

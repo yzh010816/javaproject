@@ -33,4 +33,8 @@
       #{id}
     </foreach>
   </delete>
+  <select id="queryTypeName" resultType="com.yx.po.TypeInfo">
+    select type.name
+    from type_info type
+  </select>
 </mapper>

@@ -100,6 +100,16 @@ public class BookInfo implements Serializable {
      */
     private TypeInfo typeInfo;//图书类型，在图书馆里中显示什么类型的书
 
+    private Integer counts;
+
+    public Integer getCounts() {
+        return counts;
+    }
+
+    public void setCounts(Integer counts) {
+        this.counts = counts;
+    }
+
     public TypeInfo getTypeInfo() {
         return typeInfo;
     }

@@ -63,7 +63,7 @@
 
         {
           "title": "统计分析",
-          "href": "page/error.html",
+          "href": "statisticIndex",
           "icon": "fa fa-superpowers",
           "target": "_self"
         }

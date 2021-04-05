@@ -138,6 +138,7 @@
             and topic like '%${topic}%'
       </if>
     </where>
+    order by createDate desc
   </select>
 
 </mapper>

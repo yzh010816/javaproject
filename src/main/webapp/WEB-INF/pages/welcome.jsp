@@ -2,10 +2,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<%--<%
-    String path=request.getContextPath();
-    String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,90 +46,15 @@
                 <div class="layui-card">
                     <div class="layui-card-header"><i class="fa fa-bullhorn icon icon-tip"></i>系统公告</div>
                         <div class="layui-card-body layui-text">
-                            <div class="layuimini-notice">
-                                <div class="layuimini-notice-title">修改选项卡样式</div>
-                                <div class="layuimini-notice-extra">2019-07-11 23:06</div>
-                                <div class="layuimini-notice-content layui-hide">
-                                    界面足够简洁清爽。<br>
-                                    一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                    支持多tab，可以打开多窗口。<br>
-                                    支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                    失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                    url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                    刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                    移动端的友好支持。<br>
+                            <c:forEach var="notice" items="${noticeList}">
+                                <div class="layuimini-notice">
+                                    <div class="layuimini-notice-title">${notice.topic}</div>
+                                    <div class="layuimini-notice-extra"><fmt:formatDate value="${notice.createDate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
+                                    <div class="layuimini-notice-content layui-hide">
+                                        ${notice.content}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="layuimini-notice">
-                                <div class="layuimini-notice-title">新增系统404模板</div>
-                                <div class="layuimini-notice-extra">2019-07-11 12:57</div>
-                                <div class="layuimini-notice-content layui-hide">
-                                    界面足够简洁清爽。<br>
-                                    一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                    支持多tab，可以打开多窗口。<br>
-                                    支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                    失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                    url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                    刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                    移动端的友好支持。<br>
-                                </div>
-                            </div>
-                            <div class="layuimini-notice">
-                                <div class="layuimini-notice-title">新增treetable插件和菜单管理样式</div>
-                                <div class="layuimini-notice-extra">2019-07-05 14:28</div>
-                                <div class="layuimini-notice-content layui-hide">
-                                    界面足够简洁清爽。<br>
-                                    一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                    支持多tab，可以打开多窗口。<br>
-                                    支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                    失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                    url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                    刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                    移动端的友好支持。<br>
-                                </div>
-                            </div>
-                            <div class="layuimini-notice">
-                                <div class="layuimini-notice-title">修改logo缩放问题</div>
-                                <div class="layuimini-notice-extra">2019-07-04 11:02</div>
-                                <div class="layuimini-notice-content layui-hide">
-                                    界面足够简洁清爽。<br>
-                                    一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                    支持多tab，可以打开多窗口。<br>
-                                    支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                    失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                    url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                    刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                    移动端的友好支持。<br>
-                                </div>
-                            </div>
-                            <div class="layuimini-notice">
-                                <div class="layuimini-notice-title">修复左侧菜单缩放tab无法移动</div>
-                                <div class="layuimini-notice-extra">2019-06-17 11:55</div>
-                                <div class="layuimini-notice-content layui-hide">
-                                    界面足够简洁清爽。<br>
-                                    一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                    支持多tab，可以打开多窗口。<br>
-                                    支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                    失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                    url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                    刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                    移动端的友好支持。<br>
-                                </div>
-                            </div>
-                            <div class="layuimini-notice">
-                                <div class="layuimini-notice-title">修复多模块菜单栏展开有问题</div>
-                                <div class="layuimini-notice-extra">2019-06-13 14:53</div>
-                                <div class="layuimini-notice-content layui-hide">
-                                    界面足够简洁清爽。<br>
-                                    一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                    支持多tab，可以打开多窗口。<br>
-                                    支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                    失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                    url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                    刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                    移动端的友好支持。<br>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
             </div>
@@ -166,17 +87,9 @@
                 area: '300px;',
                 shade: 0.8,
                 id: 'layuimini-notice',
-                btn: ['查看', '取消'],
                 btnAlign: 'c',
                 moveType: 1,
-                content:html,
-                success: function (layero) {
-                    var btn = layero.find('.layui-layer-btn');
-                    btn.find('.layui-layer-btn0').attr({
-                        href: 'https://gitee.com/zhongshaofa/layuimini',
-                        target: '_blank'
-                    });
-                }
+                content:html
             });
         });
     });

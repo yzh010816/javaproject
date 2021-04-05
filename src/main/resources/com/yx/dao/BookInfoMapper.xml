@@ -223,4 +223,16 @@
     </if>
 
   </select>
+
+  <!--根据图书类型获取图书对应数量信息-->
+  <select id="getBookCountByType" resultType="com.yx.po.BookInfo">
+    SELECT
+	count( book.id ) AS counts,
+	type.NAME
+    FROM
+        book_info book
+        LEFT JOIN type_info type ON type.id = book.type_id
+    GROUP BY
+	    book.type_id
+  </select>
 </mapper>

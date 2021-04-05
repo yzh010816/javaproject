@@ -48,4 +48,5 @@ public class TypeInfoServiceImpl implements TypeInfoService {
         }
         typeInfoMapper.deleteTypeByIds(list);
     }
+
 }

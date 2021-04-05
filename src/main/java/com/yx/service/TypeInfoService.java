@@ -30,4 +30,5 @@ public interface TypeInfoService {
      * 根据ids删除记录信息
      */
     void deleteTypeByIds(List<String> id);
+
 }

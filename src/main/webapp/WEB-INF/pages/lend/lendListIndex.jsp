@@ -1,10 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-<%
-    String path=request.getContextPath();
-    String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +10,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="<%=basePath%>lib/layui-v2.5.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="<%=basePath%>css/public.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/public.css" media="all">
 </head>
 <body>
 <div class="layuimini-container">
@@ -25,7 +22,7 @@
                 <div class="layui-form-item layui-form ">
                     借书卡
                     <div class="layui-inline">
-                        <input class="layui-input" name="cardnumber" id="cardnumber" autocomplete="off">
+                        <input class="layui-input" name="readerNumber" id="readerNumber" autocomplete="off">
                     </div>
                     图书名称
                     <div class="layui-inline">
@@ -49,7 +46,7 @@
                             <option value="1">在借中</option>
                         </select>
                     </div>
-                    <button class="layui-btn" data-type="reload">高级查询</button>
+                    <button class="layui-btn" data-type="reload">搜索</button>
                 </div>
             </div>
         </div>
@@ -74,7 +71,7 @@
 
     </div>
 </div>
-<script src="<%=basePath%>lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
     layui.use(['form', 'table'], function () {
         var $ = layui.jquery,
@@ -83,7 +80,7 @@
 
         table.render({
             elem: '#currentTableId',
-            url: '<%=basePath%>lendListAll',//查询借阅图书记录
+            url: '${pageContext.request.contextPath}/lendListAll',//查询借阅图书记录
             toolbar: '#toolbarDemo',
             defaultToolbar: ['filter', 'exports', 'print', {
                 title: '提示',
@@ -129,19 +126,18 @@
         var $ = layui.$, active = {
             reload: function(){
                 var name = $('#name').val();
-                var cardnumber = $('#cardnumber').val();
-                var type = $('#type').val();
+                var readerNumber = $('#readerNumber').val();
+                var backType = $('#backType').val();
                 var status = $('#status').val();
-                console.log(name)
                 //执行重载
                 table.reload('testReload', {
                     page: {
                         curr: 1 //重新从第 1 页开始
                     }
                     ,where: {
-                        type:type,
                         name: name,
-                        cardnumber:cardnumber,
+                        readerNumber:readerNumber,
+                        backType:backType,
                         status:status
                     }
                 }, 'data');
@@ -167,7 +163,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '<%=basePath%>excBackBook?id='+data.id+"&bookId="+data.bookId,
+                    content: '${pageContext.request.contextPath}/excBackBook?id='+data.id+"&bookId="+data.bookId,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
@@ -201,7 +197,7 @@
                 maxmin:true,
                 shadeClose: true,
                 area: ['60%', '60%'],
-                content: '<%=basePath%>queryLookBookList?id='+id+"&flag="+flag,
+                content: '${pageContext.request.contextPath}/queryLookBookList?id='+id+"&flag="+flag,
             });
             $(window).on("resize", function () {
                 layer.full(index);
@@ -303,7 +299,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '<%=basePath%>addLendList',
+                    content: '${pageContext.request.contextPath}/addLendList',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

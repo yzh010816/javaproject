@@ -44,4 +44,9 @@ public class BookInfoServiceImpl implements BookInfoService {
             bookInfoMapper.deleteByPrimaryKey(Integer.parseInt(id));
         }
     }
+
+    @Override
+    public List<BookInfo> getBookCountByType() {
+        return bookInfoMapper.getBookCountByType();
+    }
 }
