@@ -43,6 +43,7 @@
 ![登录](https://images.gitee.com/uploads/images/2021/0405/212740_f2ef2e47_8169242.png "登录.png")
 
 ### 10、退出登录和修改密码（开发完毕）
+![退出登录与修改密码](https://images.gitee.com/uploads/images/2021/0406/122222_f99dd86e_8169242.png "退出登录与修改密码.png")
 所有功能开发完毕
 
 
