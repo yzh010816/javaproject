@@ -1,6 +1,6 @@
 # librarySystem
 
-## 正在完毕
+## 开发完毕
 
 ## 技术栈
 - 数据库：MySQL
