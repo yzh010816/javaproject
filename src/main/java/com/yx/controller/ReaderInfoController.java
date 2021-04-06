@@ -1,9 +1,11 @@
 package com.yx.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.yx.po.Admin;
 import com.yx.po.BookInfo;
 import com.yx.po.ReaderInfo;
 import com.yx.po.TypeInfo;
+import com.yx.service.AdminService;
 import com.yx.service.ReaderInfoService;
 import com.yx.utils.DataInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,6 +23,9 @@ public class ReaderInfoController {
 
     @Autowired
     private ReaderInfoService readerInfoService;
+
+    @Autowired
+    private AdminService adminService;
 
     /**
      * 跳转读者管理页面
@@ -85,6 +92,37 @@ public class ReaderInfoController {
     public DataInfo deleteReader(String ids){
         List<String> list= Arrays.asList(ids.split(","));
         readerInfoService.deleteReaderInfoByIds(list);
+        return DataInfo.ok();
+    }
+
+    /**
+     * 修改提交（右上角修改密码）
+     */
+    @RequestMapping("/updatePwdSubmit2")
+    @ResponseBody
+    public DataInfo updatePwdSubmit(HttpServletRequest request, String oldPwd, String newPwd){
+        HttpSession session = request.getSession();
+        if(session.getAttribute("type")=="admin"){
+            //管理员
+            Admin admin = (Admin)session.getAttribute("user");
+            Admin admin1 = (Admin)adminService.queryAdminById(admin.getId());
+            if (!oldPwd.equals(admin1.getPassword())){
+                return DataInfo.fail("输入的旧密码错误");
+            }else{
+                admin1.setPassword(newPwd);
+                adminService.updateAdminSubmit(admin1);//数据库修改
+            }
+        }else{
+            //读者
+            ReaderInfo readerInfo = (ReaderInfo) session.getAttribute("user");
+            ReaderInfo readerInfo1 = readerInfoService.queryReaderInfoById(readerInfo.getId());//根据id查询对象
+            if (!oldPwd.equals(readerInfo1.getPassword())){
+                return DataInfo.fail("输入的旧密码错误");
+            }else{
+                readerInfo1.setPassword(newPwd);
+                readerInfoService.updateReaderInfoSubmit(readerInfo1);//数据库修改
+            }
+        }
         return DataInfo.ok();
     }
 }

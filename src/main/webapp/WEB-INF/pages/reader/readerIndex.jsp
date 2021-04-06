@@ -82,6 +82,7 @@
                 {field: 'sex', width: 80, title: '性别'},
                 {field: 'tel', width: 150, title: '电话'},
                 {templet:"<div>{{layui.util.toDateString(d.registerDate,'yyyy-MM-dd HH:mm:ss')}}</div>", width: 200, title: '办卡时间'},
+                {templet: '<div>{{d.email}}</div>', width: 150, title: '邮箱'},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],

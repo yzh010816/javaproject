@@ -23,20 +23,20 @@
             <div class="layui-form-item">
                 <label class="layui-form-label required">旧的密码</label>
                 <div class="layui-input-block">
-                    <input type="password" name="oldPassword" lay-verify="required" lay-reqtext="旧的密码不能为空" placeholder="请输入旧的密码"  value="" class="layui-input">
+                    <input type="password" name="oldPwd" id="oldPwd" lay-verify="required" lay-reqtext="旧密码不能为空" placeholder="请输入旧的密码"  value="" class="layui-input">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label required">新的密码</label>
                 <div class="layui-input-block">
-                    <input type="password" name="newPassword" lay-verify="required" lay-reqtext="新的密码不能为空" placeholder="请输入新的密码"  value="" class="layui-input">
+                    <input type="password" name="newPwd" id="newPwd" lay-verify="required" lay-reqtext="新密码不能为空" placeholder="请输入新的密码"  value="" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label required">新的密码</label>
+                <label class="layui-form-label required">确认密码</label>
                 <div class="layui-input-block">
-                    <input type="password" name="againPassword" lay-verify="required" lay-reqtext="新的密码不能为空" placeholder="请输入新的密码"  value="" class="layui-input">
+                    <input type="password" name="againPwd" id="againPwd" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入新的密码"  value="" class="layui-input">
                 </div>
             </div>
 
@@ -59,15 +59,14 @@
         //监听提交
         form.on('submit(saveBtn)', function (data) {
             var datas=data.field;//form单中的数据信息
-            if (datas.newPwd != datas.newPwdAgain){
+            if (datas.newPwd != datas.againPwd){
                 layer.msg("两次输入的新密码不一致,请重新输入")
             }else{
                 //向后台发送数据提交添加
                 $.ajax({
-                    url:"updatePwdSubmit",
+                    url:"updatePwdSubmit2", //读者的修改密码
                     type:"POST",
                     data: {
-                        id:datas.id,
                         oldPwd:datas.oldPwd,
                         newPwd:datas.newPwd
                     },
@@ -77,9 +76,12 @@
                                 icon:6,
                                 time:500
                             },function(){
-                                parent.window.location.reload();
-                                var iframeIndex = parent.layer.getFrameIndex(window.name);
-                                parent.layer.close(iframeIndex);
+                                var oldPassword = document.getElementById("oldPwd");
+                                var newPassword = document.getElementById("newPwd");
+                                var againPassword = document.getElementById("againPwd");
+                                oldPassword.value = "";
+                                newPassword.value = "";
+                                againPassword.value = "";
                             })
                         }else{
                             layer.msg(result.msg);

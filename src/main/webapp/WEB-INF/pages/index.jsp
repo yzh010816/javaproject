@@ -69,10 +69,7 @@
                     <a href="javascript:;"><span style="color: #BBBBBB">${sessionScope.user.username}</span></a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="javascript:;" layuimini-content-href="" data-title="基本资料" data-icon="fa fa-gears">基本资料<span class="layui-badge-dot"></span></a>
-                        </dd>
-                        <dd>
-                            <a href="javascript:;" layuimini-content-href="${pageContext.request.contextPath}/updatePassword" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
+                            <a href="#" layuimini-content-href="${pageContext.request.contextPath}/updatePassword" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
                         </dd>
                         <dd>
                             <hr>
@@ -165,7 +162,6 @@
                 icon: 6,
                 time: 500
             },function () {
-                sessionStorage.clear();
                 window.location = '${pageContext.request.contextPath}/loginOut';
             });
         });

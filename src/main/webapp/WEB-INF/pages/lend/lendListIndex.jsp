@@ -110,7 +110,6 @@
                           return '<span class="layui-badge layui-bg-green">丢失图书</span>'
                       }else{
                           return '<span class="layui-badge layui-bg-red">在借中</span>'
-
                       }
                     }},
                 {title: '操作', minWidth: 150, toolbar: '#currentTableBar', align: "center"}
