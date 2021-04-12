@@ -15,6 +15,10 @@
 ### 介绍
 基于SSM+Layui的图书管理系统
 
+### 数据库链接
+链接：https://pan.baidu.com/s/1XiUsWMHd0i009LWbWq_Cfg 
+提取码：ttsj
+
 ### 1、后台首页index（开发完毕）
 ![首页](https://images.gitee.com/uploads/images/2021/0405/151255_0818142c_8169242.png "首页截图.png")
 
