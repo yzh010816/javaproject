@@ -22,7 +22,8 @@
 - 希望点下右上角的star，拒绝连鼓励一下都没有的白嫖！！！这项目虽然相对简单，但刚开发时也费了不少心思
 
 - 主要功能开发步骤见，本人博客，代码有不同的话，以gitee中的完整版为主
-https://blog.csdn.net/weixin_39615182/category_10907250.html
+
+博客链接：https://blog.csdn.net/weixin_39615182/category_10907250.html
 
 ### 1、后台首页index（开发完毕）
 ![首页](https://images.gitee.com/uploads/images/2021/0405/151255_0818142c_8169242.png "首页截图.png")
