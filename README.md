@@ -15,15 +15,9 @@
 ## 介绍
 基于SSM+Layui的图书管理系统
 
-## 数据库链接
-链接：https://pan.baidu.com/s/1XiUsWMHd0i009LWbWq_Cfg 
-提取码：ttsj
+- 主要功能开发步骤见，本人博客，代码有不同的话，以gitee中的完整版为主，数据库博客私信
 
-- 希望点下右上角的star，算是一点小小鼓励！！！这项目虽然相对简单，但刚开发时也费了不少心思，万一不会部署可以到博客私信我（部署有偿）
-
-- 主要功能开发步骤见，本人博客，代码有不同的话，以gitee中的完整版为主
-
-博客链接：https://blog.csdn.net/weixin_39615182/category_10907250.html
+博客链接：https://blog.csdn.net/weixin_39615182/article/details/115458248
 
 ### 1、后台首页index（开发完毕）
 ![首页](https://images.gitee.com/uploads/images/2021/0405/151255_0818142c_8169242.png "首页截图.png")
