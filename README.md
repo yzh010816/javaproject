@@ -15,7 +15,11 @@
 ## 介绍
 基于SSM+Layui的图书管理系统
 
-- 主要功能开发步骤见，本人博客，代码有不同的话，以gitee中的完整版为主，数据库博客私信，留下qq，先说明有偿，但绝对实惠
+- 主要功能开发步骤见，本人博客，代码有不同的话，以gitee中的完整版为主，数据库如下，免费分享
+
+链接：https://pan.baidu.com/s/1e27Q3ej-42Dor3_yTlBYRw 
+提取码：lizi 
+复制这段内容后打开百度网盘手机App，操作更方便哦
 
 博客链接：https://blog.csdn.net/weixin_39615182/article/details/115458248
 
