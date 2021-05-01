@@ -23,8 +23,8 @@
 
 博客链接：https://blog.csdn.net/weixin_39615182/article/details/115458248
 
-如果觉得对你救急帮助大，也可以随便打赏点，哈哈
-![打赏](https://images.gitee.com/uploads/images/2021/0501/094459_dea7274d_8169242.png "屏幕截图.png")
+如果觉得对你帮助很大，也可以随便打赏点，哈哈
+![打赏](https://images.gitee.com/uploads/images/2021/0501/094459_dea7274d_8169242.png "打赏.png" width="200" height="200")
 
 ### 1、后台首页index（开发完毕）
 ![首页](https://images.gitee.com/uploads/images/2021/0405/151255_0818142c_8169242.png "首页截图.png")
