@@ -22,9 +22,7 @@
 复制这段内容后打开百度网盘手机App，操作更方便哦
 
 博客链接：https://blog.csdn.net/weixin_39615182/article/details/115458248
-
-如果觉得对你帮助很大，也可以随便打赏点，哈哈
-![打赏](https://images.gitee.com/uploads/images/2021/0501/094459_dea7274d_8169242.png "打赏.png")
+各位大哥大姐，都给白嫖了，点个star吧
 
 ### 1、后台首页index（开发完毕）
 ![首页](https://images.gitee.com/uploads/images/2021/0405/151255_0818142c_8169242.png "首页截图.png")
